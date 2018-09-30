@@ -1,4 +1,7 @@
 version: "3"
+networks:
+  net-nmp:
+    driver: "bridge"
 services:
   db1:
     image: mysql:5.7
@@ -17,7 +20,3 @@ services:
       - net-nmp
     ports:
       - "33061:3306"
-
-networks:
-  net-nmp:
-    driver: "bridge"
