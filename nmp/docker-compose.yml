@@ -1,7 +1,7 @@
 version: "3"
 services:
   db1:
-    image:mysql: 5.7
+    image: mysql:5.7
     container_name: nmp_db_1
     volumes:
       - ./db1/conf:/etc/mysql/conf.d
