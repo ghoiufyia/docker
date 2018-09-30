@@ -7,7 +7,7 @@ services:
       - ./db1/conf:/etc/mysql/conf.d
       - ./db1/data:/var/lib/mysql
       - ./db1/log:/var/log/mysql
-    restart:always
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD:123456
       MYSQL_DATABASE:sn
