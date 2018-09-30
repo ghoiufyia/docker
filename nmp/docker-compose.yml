@@ -20,3 +20,4 @@ services:
 
 networks:
   net-nmp:
+    network_mode: "bridge"
