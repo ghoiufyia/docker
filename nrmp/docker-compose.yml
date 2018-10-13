@@ -6,7 +6,7 @@ services:
     restart: always
     volumes:
       - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./nginx/conf/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ./www:/usr/share/nginx/html:ro
     ports:
       - "8000:80"
@@ -27,15 +27,15 @@ services:
     networks: 
       - net
     depends_on: 
-      - db1
-  db1:
+      - mysql
+  mysql:
     image: mysql:5.7
-    container_name: nmp_db_1
+    container_name: nmp_mysql
     restart: always
     volumes:
-      - ./db1/conf:/etc/mysql/conf.d
-      - ./db1/data:/var/lib/mysql
-      - ./db1/log:/var/log/mysql
+      - ./mysql/conf.d:/etc/mysql/conf.d
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/log:/var/log/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 123456
     ports:
