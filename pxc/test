@@ -1,0 +1,16 @@
+docker network create -d bridge pxc_net
+
+docker run -d -p 33061:3306 --net=pxc_net --name=pxc_node1 -e CLUSTER_NAME=PXC -e MYSQL_ROOT_PASSWORD=123456 -e XTRABACKUP_PASSWORD=123456 -v /Users/shangning/work/docker/docker-dev/pxc/node1/data:/var/lib/mysql -v /Users/shangning/work/docker/docker-dev/pxc/node1/log:/var/log/mysql --privileged pxc
+
+docker run -d -p 33062:3306 --net=pxc_net --name=pxc_node2 -e CLUSTER_NAME=PXC -e MYSQL_ROOT_PASSWORD=123456 -e XTRABACKUP_PASSWORD=123456 -e CLUSTER_JOIN=pxc_node1 -v /Users/shangning/work/docker/docker-dev/pxc/node2/data:/var/lib/mysql -v /Users/shangning/work/docker/docker-dev/pxc/node2/log:/var/log/mysql --privileged pxc
+
+docker run -d -p 33063:3306 --net=pxc_net --name=pxc_node3 -e CLUSTER_NAME=PXC -e MYSQL_ROOT_PASSWORD=123456 -e XTRABACKUP_PASSWORD=123456 -e CLUSTER_JOIN=pxc_node1 -v /Users/shangning/work/docker/docker-dev/pxc/node3/data:/var/lib/mysql -v /Users/shangning/work/docker/docker-dev/pxc/node3/log:/var/log/mysql --privileged pxc
+
+docker run -d -p 33064:3306 --net=pxc_net --name=pxc_node4 -e CLUSTER_NAME=PXC -e MYSQL_ROOT_PASSWORD=123456 -e XTRABACKUP_PASSWORD=123456 -e CLUSTER_JOIN=pxc_node1 -v /Users/shangning/work/docker/docker-dev/pxc/node4/data:/var/lib/mysql -v /Users/shangning/work/docker/docker-dev/pxc/node4/log:/var/log/mysql --privileged pxc
+
+docker run -d -p 33065:3306 --net=pxc_net --name=pxc_node5 -e CLUSTER_NAME=PXC -e MYSQL_ROOT_PASSWORD=123456 -e XTRABACKUP_PASSWORD=123456 -e CLUSTER_JOIN=pxc_node1 -v /Users/shangning/work/docker/docker-dev/pxc/node5/data:/var/lib/mysql -v /Users/shangning/work/docker/docker-dev/pxc/node5/log:/var/log/mysql --privileged pxc
+
+
+docker run -d -p 4000:8888 -p 4001:3306 --name pxc_haproxy_1 --net=pxc_net -v /Users/shangning/work/docker/docker-dev/pxc/haproxy1/conf:/usr/local/etc/haproxy:ro --privileged haproxy:1.7
+
+docker run -d -p 4002:8888 -p 4003:3306 --name pxc_haproxy_2 --net=pxc_net -v /Users/shangning/work/docker/docker-dev/pxc/haproxy2/conf:/usr/local/etc/haproxy:ro --privileged haproxy:1.7

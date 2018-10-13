@@ -1,0 +1,35 @@
+version: "3"
+services:
+  zoo1:
+    image: zookeeper:3.4
+    container_name: "zoo1"
+    restart: always
+    ports:
+      - "21811:2181"
+    volumes:
+      - /Users/shangning/work/docker/docker-dev/zookeeper/zoo1/conf/zoo.cfg:/conf/zoo.cfg
+    networks: 
+      - net-zoo
+  zoo2:
+    image: zookeeper:3.4
+    container_name: "zoo2"
+    restart: always
+    ports:
+      - "21812:2181"
+    volumes:
+      - /Users/shangning/work/docker/docker-dev/zookeeper/zoo2/conf/zoo.cfg:/conf/zoo.cfg
+    networks: 
+      - net-zoo
+  zoo3:
+    image: zookeeper:3.4
+    container_name: "zoo3"
+    restart: always
+    ports:
+      - "21813:2181"
+    volumes:
+      - /Users/shangning/work/docker/docker-dev/zookeeper/zoo3/conf/zoo.cfg:/conf/zoo.cfg
+    networks: 
+      - net-zoo
+networks: 
+  net-zoo:
+    driver: "bridge"

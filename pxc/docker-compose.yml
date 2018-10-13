@@ -1,0 +1,102 @@
+version: "3"
+networks:
+  net:
+    driver: "bridge"
+services:
+  pxc-node1:
+    container_name: pxc-node1
+    image: pxc
+    restart: always
+    volumes:
+      - ./node1/conf:/etc/mysql/conf.d
+      - ./node1/data:/var/lib/mysql
+      - ./node1/log:/var/log/mysql
+    environment:
+      CLUSTER_NAME: PXC
+      MYSQL_ROOT_PASSWORD: 123456
+      XTRABACKUP_PASSWORD: 123456
+    networks:
+      - net
+    ports:
+      - "33061:3306"
+    privileged: true
+  pxc-node2:
+    container_name: pxc-node2
+    depends_on: 
+      - pxc-node1
+    image: pxc
+    restart: always
+    volumes:
+      - ./node2/conf:/etc/mysql/conf.d
+      - ./node2/data:/var/lib/mysql
+      - ./node2/log:/var/log/mysql
+    environment:
+      CLUSTER_NAME: PXC
+      MYSQL_ROOT_PASSWORD: 123456
+      XTRABACKUP_PASSWORD: 123456
+      CLUSTER_JOIN: pxc-node1
+    networks:
+      - net
+    ports:
+      - "33062:3306"
+    privileged: true
+  pxc-node3:
+    container_name: pxc-node3
+    depends_on: 
+      - pxc-node1
+    image: pxc
+    restart: always
+    volumes:
+      - ./node3/conf:/etc/mysql/conf.d
+      - ./node3/data:/var/lib/mysql
+      - ./node3/log:/var/log/mysql
+    environment:
+      CLUSTER_NAME: PXC
+      MYSQL_ROOT_PASSWORD: 123456
+      XTRABACKUP_PASSWORD: 123456
+      CLUSTER_JOIN: pxc-node1
+    networks:
+      - net
+    ports:
+      - "33063:3306"
+    privileged: true
+  pxc-node4:
+    container_name: pxc-node4
+    depends_on: 
+      - pxc-node1
+    image: pxc
+    restart: always
+    volumes:
+      - ./node4/conf:/etc/mysql/conf.d
+      - ./node4/data:/var/lib/mysql
+      - ./node4/log:/var/log/mysql
+    environment:
+      CLUSTER_NAME: PXC
+      MYSQL_ROOT_PASSWORD: 123456
+      XTRABACKUP_PASSWORD: 123456
+      CLUSTER_JOIN: pxc-node1
+    networks:
+      - net
+    ports:
+      - "33064:3306"
+    privileged: true
+  pxc-node5:
+    container_name: pxc-node5
+    depends_on: 
+      - pxc-node1
+    image: pxc
+    restart: always
+    volumes:
+      - ./node5/conf:/etc/mysql/conf.d
+      - ./node5/data:/var/lib/mysql
+      - ./node5/log:/var/log/mysql
+    environment:
+      CLUSTER_NAME: PXC
+      MYSQL_ROOT_PASSWORD: 123456
+      XTRABACKUP_PASSWORD: 123456
+      CLUSTER_JOIN: pxc-node1
+    networks:
+      - net
+    ports:
+      - "33065:3306"
+    privileged: true

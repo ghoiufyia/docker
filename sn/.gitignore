@@ -1,0 +1,3 @@
+./db1/data/*
+./db1/log/*
+./nginx/log/*
