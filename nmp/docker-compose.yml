@@ -5,7 +5,7 @@ services:
     container_name: nmp_nginx
     restart: always
     volumes:
-      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ./www:/usr/share/nginx/html:ro
     ports:
