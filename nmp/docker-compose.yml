@@ -1,22 +1,36 @@
 version: "3"
-networks:
-  net-nmp:
-    driver: "bridge"
 services:
-  db1:
-    image: mysql:5.7
-    container_name: nmp_db_1
-    volumes:
-      - ./db1/conf:/etc/mysql/conf.d
-      - ./db1/data:/var/lib/mysql
-      - ./db1/log:/var/log/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: sn
-      MYSQL_USER: sn
-      MYSQL_PASSWORD: 123456
-    networks:
-      - net-nmp
-    ports:
-      - "33061:3306"
+    mysql:
+        image: mysql:5.7
+        container_name: mysql
+        restart: always
+        ports:
+            - "33061:3306"
+        volumes:
+            - ~/mysql/conf.d:/etc/mysql/conf.d
+            - ~/mysql/data:/var/lib/mysql
+            - ~/mysql/log:/var/log/mysql
+        networks:
+            - net-nmp
+    nginx:
+        image: nginx:1.15
+        container_name: nginx
+        restart: always
+        ports:
+            - "8000:80"
+            - "4430:443"
+        volumes:
+            - ~/nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ~/nginx/conf.d:/etc/nginx/conf.d
+            - ~/www:/usr/share/nginx/html
+        networks:
+            - net-nmp
+    php:
+        build: .
+        container_name: php
+        restart: always
+        expose:
+            - "9000"
+        voumes:
+            - ~/php/conf/php.ini:
+            - ~/www:/var/www/html

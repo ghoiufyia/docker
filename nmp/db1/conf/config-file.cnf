@@ -1,4 +1,0 @@
-[mysqld]
-server-id=1
-log-bin=nmp-db-1
-log-bin-index=nmp-db-1.index
