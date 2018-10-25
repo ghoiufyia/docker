@@ -17,11 +17,13 @@ services:
   php-fpm:
     #image: php:7.2-fpm-alpine
     build: ./php
-    container_name: php_fpm
+    container_name: nmp_php
     restart: always
     volumes:
       - ./php/conf/php.ini:/usr/local/etc/php/php.ini
-      - ./www:/var/www/html
+      # - ./php/conf/php-fpm.conf:/usr/local/etc/php-fpm.conf
+      # - ./php/conf/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./www:/usr/share/nginx/html
     expose:
       - "9000"
     networks: 
@@ -39,9 +41,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 123456
     ports:
-      - "33066:3306"
-    expose:
-      - "3306"
+      - "33061:3306"
     networks: 
       - net
   redis:
@@ -52,8 +52,6 @@ services:
       - ./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
       - ./redis/data:/data
     command: redis-server /usr/local/etc/redis/redis.conf
-    expose: 
-      - "63791"
     networks: 
       - net
 networks: 
