@@ -3,11 +3,14 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
-    && rm -r zookeeper \
     && docker-php-ext-install -j$(nproc) iconv \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install pdo_mysql mysqli\
+    # && docker-php-ext-enable pdo pdo_mysql mysqli \
     && docker-php-ext-install -j$(nproc) gd \
     && pecl install redis-4.0.1 \
     && pecl install xdebug-2.6.0 \
-	&& pecl install zookeeper-0.6.2 \
-    && docker-php-ext-enable redis xdebug zookeeper
+    && pecl install swoole \
+    && pecl install grpc \
+    && pecl install protobuf \
+    && docker-php-ext-enable redis xdebug swoole grpc protobuf
