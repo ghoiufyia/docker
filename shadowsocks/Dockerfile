@@ -20,6 +20,9 @@ RUN awk '/EVP_CIPHER_CTX_cleanup/{print $o}'
 
 RUN find /usr -name libcrypto*
 
+RUN ln -s /usr/lib64/libcrypto.so.1.1 /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+
+
 EXPOSE 8838
 
 CMD [ "ssserver", "-c", "./shadowsocks.json","-d", "start" ]
