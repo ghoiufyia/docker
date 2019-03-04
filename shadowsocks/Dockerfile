@@ -20,6 +20,8 @@ RUN awk '/EVP_CIPHER_CTX_cleanup/{print $o}'
 
 RUN find /usr -name libcrypto*
 
+RUN openssl verison
+
 # RUN ln -s /usr/lib64/libcrypto.so.1.1 /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
 
 
