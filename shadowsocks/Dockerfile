@@ -18,7 +18,7 @@ COPY shadowsocks.json ./
 RUN awk '/EVP_CIPHER_CTX_reset/{print $o}'
 RUN awk '/EVP_CIPHER_CTX_cleanup/{print $o}'
 
-RUN find / -name libcrypto*
+RUN find /usr -name libcrypto*
 
 EXPOSE 8838
 
