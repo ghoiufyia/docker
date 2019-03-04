@@ -15,4 +15,4 @@ COPY shadowsocks.json ./
 
 EXPOSE 8838
 
-CMD [ "ssserver", "-c", "./shadowsocks.json","-d", "start" ]
+CMD [ "ssserver", "-c", "/usr/src/app/shadowsocks.json","-d", "start" ]
