@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 # copy requirements.txt ./
 
-apt-get install openssl libssl-dev
+RUN apt-get install openssl libssl-dev
 
 RUN pip install --upgrade pip
 # RUN pip install --no-cache-dir -r requirements.txt
