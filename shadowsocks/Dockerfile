@@ -2,6 +2,11 @@ FROM debian
 
 WORKDIR /usr/src/app
 
+
+
+RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+RUN python get-pip.py
+
 # copy requirements.txt ./
 
 # RUN apt-get install openssl libssl-dev
@@ -10,8 +15,8 @@ RUN pip install --upgrade pip
 # RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install shadowsocks
 
-COPY repair.sh ./
-RUN sh ./repair.sh
+# COPY repair.sh ./
+# RUN sh ./repair.sh
 
 COPY shadowsocks.json ./
 
