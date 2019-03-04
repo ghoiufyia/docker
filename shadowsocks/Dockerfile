@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 RUN pip install --upgrade pip
 # RUN pip install --no-cache-dir -r requirements.txt
-pip install shadowsocks
+RUN pip install shadowsocks
 
 # COPY .shadowsocks.json ./
 
