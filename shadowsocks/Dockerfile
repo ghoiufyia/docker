@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python:3.7
 
 WORKDIR /usr/src/app
 
@@ -7,6 +7,9 @@ WORKDIR /usr/src/app
 RUN pip install --upgrade pip
 # RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install shadowsocks
+
+COPY repair.sh ./
+RUN sh ./repair.sh
 
 # COPY .shadowsocks.json ./
 
