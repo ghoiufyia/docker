@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  shadowsocks:
+    build: .
+    container_name: shadowsocks
+    restart: always
+    volumes:
+      - "./conf:/usr/src/app/"
+    ports:
+      - "8838:8838"
+      - "8839:8839"

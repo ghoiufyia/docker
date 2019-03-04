@@ -5,9 +5,10 @@ WORKDIR /usr/src/app
 # copy requirements.txt ./
 
 RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
+pip install shadowsocks
 
-COPY .shadowsocks.json ./
+# COPY .shadowsocks.json ./
 
 EXPOSE 8838
 
