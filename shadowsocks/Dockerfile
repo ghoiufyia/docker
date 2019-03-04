@@ -13,6 +13,11 @@ RUN sh ./repair.sh
 
 COPY shadowsocks.json ./
 
+RUN cat ./shadowsocks.json
+
+RUN cat /usr/src/app/shadowsocks.json
+
+
 EXPOSE 8838
 
 CMD [ "ssserver", "-c", "/usr/src/app/shadowsocks.json","-d", "start" ]
