@@ -11,7 +11,13 @@ RUN pip install shadowsocks
 COPY repair.sh ./
 RUN sh ./repair.sh
 
+RUN awk '/EVP_CIPHER_CTX_cleanup/{print $0}'
+
+RUN awk '/EVP_CIPHER_CTX_reset/{print $0}'
+
 # COPY .shadowsocks.json ./
+
+RUN cat ./shadowsocks.json
 
 EXPOSE 8838
 
