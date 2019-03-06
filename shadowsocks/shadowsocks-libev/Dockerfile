@@ -6,4 +6,4 @@ RUN find /etc -name shadowsocks*
 
 EXPOSE 8838
 
-CMD [ "ss-server", "-c", "/etc/shadowsocks.json" ]
+CMD [ "ss-server", "-c", "/etc/config.json" ]
