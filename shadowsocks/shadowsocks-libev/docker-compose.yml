@@ -2,7 +2,7 @@ version: "3"
 
 services:
   shadowsocks:
-    image: .
+    build: .
     container_name: shadowsocks-libdev
     ports:
       - "8838:8838"
