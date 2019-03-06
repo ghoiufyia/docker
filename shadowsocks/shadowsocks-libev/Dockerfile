@@ -1,6 +1,6 @@
 FROM shadowsocks/shadowsocks-libev
 
-COPY shadowsocks.json /etc/
+COPY shadowsocks.1.json /etc/config.json
 
 RUN find /etc -name shadowsocks*
 
