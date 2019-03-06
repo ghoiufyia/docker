@@ -1,7 +1,7 @@
 FROM shadowsocks/shadowsocks-libev
 
-COPY shadowsocks.json ./
+COPY shadowsocks.json /etc/
 
 EXPOSE 8838
 
-CMD [ "ss-server", "-c", "./shadowsocks.json" ]
+CMD [ "ss-server", "-c", "/etc/shadowsocks.json" ]
