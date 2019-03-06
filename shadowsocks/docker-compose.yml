@@ -6,5 +6,5 @@ services:
     container_name: shadowsocks
     restart: always
     ports:
-      - "8838:8838"
-      - "8839:8839"
+      - "8388:8388"
+      - "8389:8389"
