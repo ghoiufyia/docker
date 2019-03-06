@@ -3,7 +3,7 @@ version: "3"
 services:
   shadowsocks:
     build: .
-    container_name: shadowsocks
+    container_name: shadowsocks-go
     restart: always
     ports:
       - "8837:8837"
