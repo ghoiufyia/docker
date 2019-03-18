@@ -3,8 +3,7 @@ version: "3"
 services:
   shadowsocks:
     build: .
-    container_name: shadowsocks
-    restart: always
+    container_name: libdev
     ports:
       - "8838:8838"
-      - "8839:8839"
+    restart: always
