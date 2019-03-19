@@ -29,7 +29,7 @@ services:
     container_name: l1
     restart: always
     ports:
-      - "5644:5644"
+      - "5044:5044"
     volumes:
       - ./l1/config:/usr/share/logstash/config/
       - ./l1/pipeline/:/usr/share/logstash/pipeline/
