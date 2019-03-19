@@ -18,6 +18,8 @@ services:
     image: docker.elastic.co/kibana/kibana:6.6.2
     container_name: k1
     restart: always
+    ports:
+      - "5601:5601"
     volumes:
       - ./k1/kibana.yml:/usr/share/kibana/config/kibana.yml
     networks:
@@ -25,6 +27,9 @@ services:
   logstash:
     image: docker.elastic.co/logstash/logstash:6.6.2
     container_name: l1
+    restart: always
+    ports:
+      - "5644:5644"
     volumes:
       - ./l1/config:/usr/share/logstash/config/
       - ./l1/pipeline/:/usr/share/logstash/pipeline/
