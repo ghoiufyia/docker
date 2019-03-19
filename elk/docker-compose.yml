@@ -1,0 +1,44 @@
+version: "3."
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.6.2
+    container_name: es1
+    restart: always
+    environmetns:
+      - bootstrap.memory_lock=true
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./es1/data:/usr/share/elasticsearch/data
+      - ./es1/elasticsearch.yml:/usr/share/elasticsearch/elasticsearch.yml
+    networks:
+      - elknet
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.6.2
+    container_name: k1
+    restart: always
+    volumes:
+      - ./k1/kibana.yml:/usr/share/kibana/config/kibana.yml
+    networks:
+      - elknet
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:6.6.2
+    container_name: l1
+    volumes:
+      - ./l1/config:/usr/share/logstash/config/
+      - ./l1/pipeline/:/usr/share/logstash/pipeline/
+    networks:
+      - elknet
+
+
+
+networks:
+  elknet:
