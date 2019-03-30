@@ -9,7 +9,7 @@ services:
       - "9200:9200"
       - "9300:9300"
     volumes:
-      - ./es1/data:/usr/share/elasticsearch/data
+      # - ./es1/data:/usr/share/elasticsearch/data
       - ./es1/elasticsearch.yml:/usr/share/elasticsearch/elasticsearch.yml
     networks:
       - elknet
@@ -36,6 +36,14 @@ services:
     networks:
       - elknet
 
+  metricbeat:
+    image: docker.elastic.co/beats/metricbeat:6.7.0
+    container_name: b1
+    restart: always
+    volumes:
+      - ""
+    net:
+      - elknet
 
 
 networks:
