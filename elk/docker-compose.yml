@@ -9,7 +9,7 @@ services:
       - "9200:9200"
       - "9300:9300"
     volumes:
-      # - ./es1/data:/usr/share/elasticsearch/data
+      - ./es1/data:/usr/share/elasticsearch/data
       - ./es1/elasticsearch.yml:/usr/share/elasticsearch/elasticsearch.yml
     networks:
       - elknet
