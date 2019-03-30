@@ -42,7 +42,7 @@ services:
     restart: always
     volumes:
       - ""
-    net:
+    networks:
       - elknet
 
 
