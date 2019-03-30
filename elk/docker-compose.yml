@@ -38,7 +38,7 @@ services:
 
   metricbeat:
     image: docker.elastic.co/beats/metricbeat:6.7.0
-    container_name: b1
+    container_name: beat1
     restart: always
     volumes:
       - ""
