@@ -1,0 +1,31 @@
+version: "3"
+services:
+  mysql1:
+    image: mysql:5.7
+    container_name: mysql1
+    restart: always
+    volumes:
+      - ./m1/conf.d:/etc/mysql/conf.d
+      - ./m1/data:/var/lib/mysql:rw
+    environment:
+      MYSQL_ROOT_PASSWORD: Sn93007997
+    ports:
+      - "33061:3306"
+    networks: 
+      - net
+  mysql2:
+    image: mysql:5.7
+    container_name: mysql2
+    restart: always
+    volumes:
+      - ./m2/conf.d:/etc/mysql/conf.d
+      - ./m2/data:/var/lib/mysql:rw
+    environment:
+      MYSQL_ROOT_PASSWORD: Sn93007997
+    ports:
+      - "33062:3306"
+    networks: 
+      - net
+networks: 
+  net:
+    driver: "bridge"
