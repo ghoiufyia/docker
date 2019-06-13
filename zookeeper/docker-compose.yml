@@ -6,8 +6,8 @@ services:
         container_name: zoo1
         volumes:
            # - ~/zoo1/conf/zoo.cfg:/conf/zoo.cfg
-            - ~/zoo1/data:/data
-            - ~/zoo1/datalog:/datalog
+            - ./zoo1/data:/data
+            - ./zoo1/datalog:/datalog
         ports:
             - "21811:2181"
         expose:
@@ -21,8 +21,8 @@ services:
         container_name: zoo2
         volumes:
             #- ~/zoo2/conf/zoo.cfg:/conf/zoo.cfg
-            - ~/zoo2/data:/data
-            - ~/zoo2/datalog:/datalog
+            - ./zoo2/data:/data
+            - ./zoo2/datalog:/datalog
         ports:
             - "21812:2181"
         expose:
@@ -36,8 +36,8 @@ services:
         container_name: zoo3
         volumes:
             #- ~/zoo3/conf/zoo.cfg:/conf/zoo.cfg
-            - ~/zoo3/data:/data
-            - ~/zoo3/datalog:/datalog
+            - ./zoo3/data:/data
+            - ./zoo3/datalog:/datalog
         ports:
             - "21813:2181"
         expose:

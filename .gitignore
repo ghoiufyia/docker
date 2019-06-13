@@ -1,2 +1,11 @@
 /mysql/mm/m1/data/*
 /mysql/mm/m2/data/*
+/zookeeper/zoo1/data/*
+/zookeeper/zoo1/datalog/
+/zookeeper/zoo2/data/
+/zookeeper/zoo3/data/
+nmp/mysql/data/
+nmp/mysql/log/
+nmp/redis/data/
+mysql/m1/data/
+.DS_Store

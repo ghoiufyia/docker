@@ -14,3 +14,8 @@ RUN apt-get update && apt-get install -y \
     && pecl install grpc \
     && pecl install protobuf \
     && docker-php-ext-enable redis xdebug swoole grpc protobuf
+
+RUN curl -sS https://getcomposer.org/installer  \
+ && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+ && composer config -g repo.packagist composer https://packagist.phpcomposer.com \
+ && composer install
