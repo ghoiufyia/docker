@@ -62,6 +62,14 @@ services:
     networks:
       - elknet
 
+  metricbeat:
+    image: docker.elastic.co/beats/metricbeat:6.7.0
+    container_name: beat1
+    restart: always
+    volumes:
+      - ""
+    networks:
+      - elknet
 
 
 volumes:
