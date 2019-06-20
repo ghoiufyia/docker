@@ -1,0 +1,49 @@
+metricbeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    # Reload module configs as they change:
+    reload.enabled: false
+
+metricbeat.autodiscover:
+  providers:
+    - type: docker
+      hints.enabled: true
+
+metricbeat.modules:
+- module: docker
+  metricsets:
+    - "container"
+    - "cpu"
+    - "diskio"
+    - "healthcheck"
+    - "info"
+    #- "image"
+    - "memory"
+    - "network"
+  hosts: ["unix:///var/run/docker.sock"]
+  period: 10s
+  enabled: true
+
+processors:
+  - add_cloud_metadata: ~
+
+# output.elasticsearch:
+#   hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'
+#   username: '${ELASTICSEARCH_USERNAME:}'
+#   password: '${ELASTICSEARCH_PASSWORD:}'
+
+# output.console:
+#   pretty: true
+
+output.kafka:
+  # initial brokers for reading cluster metadata
+  hosts: ["10.10.10.103:9092"]
+
+  # message topic selection + partitioning
+  topic: 'metricbeat'
+  partition.round_robin:
+  reachable_only: false
+
+  required_acks: 1
+  compression: gzip
+  max_message_bytes: 1000000

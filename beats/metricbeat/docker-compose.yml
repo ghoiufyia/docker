@@ -1,0 +1,13 @@
+version: "3"
+services: 
+  metricbeat:
+    build: .
+    restart: always
+    user: root
+    command: -system.hostfs=/hostfs
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc:/hostfs/proc:ro
+      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+      - /:/hostfs:ro
+    network_mode: host
