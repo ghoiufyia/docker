@@ -1,0 +1,52 @@
+version: '3.1'
+
+services:
+  nginx:
+    image: nginx:1.15
+    #container_name: n1
+    restart: always
+    volumes:
+      - ./n1/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./n1/conf.d:/etc/nginx/conf.d:ro
+      - ./www:/usr/share/nginx/html
+      - "php-fpm-socket:/dev/php-fpm-socket:rw"
+    ports:
+      - "80:80"
+    networks:
+      - web
+  blog:
+    image: blog:latest
+    #container_name: b1
+    restart: always
+    expose:
+      - "8080"
+    networks:
+      - web
+  kindle:
+    image: kindle:latest
+    #container_name: dogo
+    restart: always
+    expose:
+      - "8080"
+    networks:
+      - web
+  php:
+    image: php:7.2-fpm-alpine
+    build: ./php
+    #container_name: php
+    restart: always
+    volumes:
+      - ./php/conf/php.ini:/usr/local/etc/php/php.ini
+      - ./php/php-fpm.conf:/usr/local/etc/php-fpm.conf
+      - ./php/php-fpm.d:/usr/local/etc/php-fpm.d
+      - ./www:/usr/share/nginx/html
+      - "php-fpm-socket:/dev/php-fpm-socket:rw"
+    expose:
+      - "9000"
+    networks:
+      - web
+volumes:
+    php-fpm-socket:
+networks:
+    web:
+      driver: "bridge"
