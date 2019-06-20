@@ -1,0 +1,37 @@
+2019-06-17T17:50:01.236+0800	INFO	instance/beat.go:571	Home path: [/Users/shangning/work/docker/elk/beats/metricbeat-7.1.1-darwin-x86_64] Config path: [/Users/shangning/work/docker/elk/beats/metricbeat-7.1.1-darwin-x86_64] Data path: [/Users/shangning/work/docker/elk/beats/metricbeat-7.1.1-darwin-x86_64/data] Logs path: [/Users/shangning/work/docker/elk/beats/metricbeat-7.1.1-darwin-x86_64/logs]
+2019-06-17T17:50:01.237+0800	INFO	instance/beat.go:579	Beat ID: de45e82a-7170-46ce-a70a-1f92993926b0
+2019-06-17T17:50:01.237+0800	INFO	[index-management.ilm]	ilm/ilm.go:129	Policy name: metricbeat-7.1.1
+2019-06-17T17:50:01.238+0800	INFO	[beat]	instance/beat.go:827	Beat info	{"system_info": {"beat": {"path": {"config": "/Users/shangning/work/docker/elk/beats/metricbeat-7.1.1-darwin-x86_64", "data": "/Users/shangning/work/docker/elk/beats/metricbeat-7.1.1-darwin-x86_64/data", "home": "/Users/shangning/work/docker/elk/beats/metricbeat-7.1.1-darwin-x86_64", "logs": "/Users/shangning/work/docker/elk/beats/metricbeat-7.1.1-darwin-x86_64/logs"}, "type": "metricbeat", "uuid": "de45e82a-7170-46ce-a70a-1f92993926b0"}}}
+2019-06-17T17:50:01.238+0800	INFO	[beat]	instance/beat.go:836	Build info	{"system_info": {"build": {"commit": "3358d9a5a09e3c6709a2d3aaafde628ea34e8419", "libbeat": "7.1.1", "time": "2019-05-23T13:24:29.000Z", "version": "7.1.1"}}}
+2019-06-17T17:50:01.239+0800	INFO	[beat]	instance/beat.go:839	Go runtime info	{"system_info": {"go": {"os":"darwin","arch":"amd64","max_procs":8,"version":"go1.11.5"}}}
+2019-06-17T17:50:01.239+0800	INFO	[beat]	instance/beat.go:843	Host info	{"system_info": {"host": {"architecture":"x86_64","boot_time":"2019-06-14T22:45:27.133607+08:00","name":"bogon","ip":["127.0.0.1/8","::1/128","fe80::1/64","127.94.0.1/8","fe80::1cce:9bff:e4c0:897f/64","10.10.10.103/24","fe80::6c42:dbff:fe5e:6f5a/64","fe80::dadf:e8f6:8b01:52f/64","fe80::9a81:e213:6f5f:70eb/64","192.168.99.1/24","fe80::aede:48ff:fe00:1122/64","172.31.254.29/24","fe80::86a:cc2e:4110:ad92/64","169.254.46.52/16"],"kernel_version":"18.6.0","mac":["78:4f:43:62:b7:04","0a:4f:43:62:b7:04","6e:42:db:5e:6f:5a","56:00:40:10:b2:01","56:00:40:10:b2:00","56:00:40:10:b2:05","56:00:40:10:b2:04","56:00:40:10:b2:00","0a:00:27:00:00:00","0a:00:27:00:00:01","ac:de:48:00:11:22","72:ef:00:45:33:b6"],"os":{"family":"darwin","platform":"darwin","name":"Mac OS X","version":"10.14.5","major":10,"minor":14,"patch":5,"build":"18F132"},"timezone":"CST","timezone_offset_sec":28800,"id":"8844B745-4269-5601-BFA7-D8261896F1D6"}}}
+2019-06-17T17:50:01.239+0800	INFO	[beat]	instance/beat.go:872	Process info	{"system_info": {"process": {"cwd": "/Users/shangning/work/docker/elk/beats/metricbeat-7.1.1-darwin-x86_64", "exe": "./metricbeat", "name": "metricbeat", "pid": 43236, "ppid": 28391, "start_time": "2019-06-17T17:50:01.178+0800"}}}
+2019-06-17T17:50:01.239+0800	INFO	instance/beat.go:280	Setup Beat: metricbeat; Version: 7.1.1
+2019-06-17T17:50:01.240+0800	INFO	[publisher]	pipeline/module.go:97	Beat name: bogon
+2019-06-17T17:50:01.241+0800	INFO	[monitoring]	log/log.go:117	Starting metrics logging every 30s
+2019-06-17T17:50:01.241+0800	INFO	instance/beat.go:391	metricbeat start running.
+2019-06-17T17:50:01.242+0800	INFO	cfgfile/reload.go:150	Config reloader started
+2019-06-17T17:50:01.243+0800	INFO	cfgfile/reload.go:205	Loading of config files completed.
+2019-06-17T17:50:04.242+0800	INFO	add_cloud_metadata/add_cloud_metadata.go:346	add_cloud_metadata: hosting provider type not detected.
+2019-06-17T17:50:05.244+0800	INFO	pipeline/output.go:95	Connecting to kafka(10.10.10.103:32773)
+2019-06-17T17:50:05.244+0800	INFO	kafka/log.go:53	kafka message: Initializing new client
+2019-06-17T17:50:05.244+0800	INFO	kafka/log.go:53	client/metadata fetching metadata for all topics from broker 10.10.10.103:32773
+
+2019-06-17T17:50:05.244+0800	INFO	kafka/log.go:53	Connected to broker at 10.10.10.103:32773 (unregistered)
+
+2019-06-17T17:50:05.251+0800	INFO	kafka/log.go:53	client/brokers registered new broker #1001 at 10.10.10.103:32773
+2019-06-17T17:50:05.251+0800	INFO	kafka/log.go:53	kafka message: Successfully initialized new client
+2019-06-17T17:50:05.251+0800	INFO	pipeline/output.go:105	Connection to kafka(10.10.10.103:32773) established
+2019-06-17T17:50:05.251+0800	INFO	kafka/log.go:53	producer/broker/1001 starting up
+
+2019-06-17T17:50:05.251+0800	INFO	kafka/log.go:53	producer/broker/1001 state change to [open] on test/0
+
+2019-06-17T17:50:05.252+0800	INFO	kafka/log.go:53	Connected to broker at 10.10.10.103:32773 (registered as #1001)
+
+2019-06-17T17:50:31.244+0800	INFO	[monitoring]	log/log.go:144	Non-zero metrics in the last 30s	{"monitoring": {"metrics": {"beat":{"cpu":{"system":{"ticks":217,"time":{"ms":217}},"total":{"ticks":817,"time":{"ms":817},"value":817},"user":{"ticks":600,"time":{"ms":600}}},"info":{"ephemeral_id":"285c36dd-2288-4812-96f2-1269dddc6d40","uptime":{"ms":30043}},"memstats":{"gc_next":13067824,"memory_alloc":7497648,"memory_total":674790280,"rss":48226304}},"libbeat":{"config":{"module":{"running":0},"reloads":1},"output":{"events":{"acked":112,"batches":5,"total":112},"type":"kafka"},"outputs":{"kafka":{"bytes_read":563,"bytes_write":20050}},"pipeline":{"clients":6,"events":{"active":0,"filtered":1,"published":112,"retry":43,"total":113},"queue":{"acked":112}}},"metricbeat":{"system":{"cpu":{"events":3,"success":4},"filesystem":{"events":5,"success":5},"fsstat":{"events":1,"success":1},"load":{"events":4,"success":4},"memory":{"events":3,"success":3},"network":{"events":66,"success":66},"process":{"events":25,"success":25},"process_summary":{"events":3,"success":3},"socket_summary":{"events":3,"success":3},"uptime":{"events":1,"success":1}}},"system":{"cpu":{"cores":8},"load":{"1":2.5742,"15":2.2642,"5":2.3809,"norm":{"1":0.3218,"15":0.283,"5":0.2976}}}}}}
+2019-06-17T17:50:58.178+0800	INFO	cfgfile/reload.go:208	Dynamic config reloader stopped
+2019-06-17T17:50:58.178+0800	INFO	[reload]	cfgfile/list.go:118	Stopping 3 runners ...
+2019-06-17T17:50:58.179+0800	INFO	[monitoring]	log/log.go:152	Total non-zero metrics	{"monitoring": {"metrics": {"beat":{"cpu":{"system":{"ticks":401,"time":{"ms":401}},"total":{"ticks":1479,"time":{"ms":1479},"value":1479},"user":{"ticks":1078,"time":{"ms":1078}}},"info":{"ephemeral_id":"285c36dd-2288-4812-96f2-1269dddc6d40","uptime":{"ms":56978}},"memstats":{"gc_next":13250064,"memory_alloc":7574464,"memory_total":1245257672,"rss":50610176}},"libbeat":{"config":{"module":{"running":0},"reloads":1},"output":{"events":{"acked":216,"batches":11,"total":216},"type":"kafka"},"outputs":{"kafka":{"bytes_read":1091,"bytes_write":39413}},"pipeline":{"clients":3,"events":{"active":0,"filtered":1,"published":216,"retry":43,"total":217},"queue":{"acked":216}}},"metricbeat":{"system":{"cpu":{"events":6,"success":6},"filesystem":{"events":5,"success":5},"fsstat":{"events":1,"success":1},"load":{"events":6,"success":6},"memory":{"events":6,"success":6},"network":{"events":132,"success":132},"process":{"events":48,"success":48},"process_summary":{"events":6,"success":6},"socket_summary":{"events":6,"success":6},"uptime":{"events":1,"success":1}}},"system":{"cpu":{"cores":8},"load":{"1":2.3652,"15":2.2544,"5":2.3486,"norm":{"1":0.2957,"15":0.2818,"5":0.2936}}}}}}
+2019-06-17T17:50:58.179+0800	INFO	[monitoring]	log/log.go:153	Uptime: 56.9790875s
+2019-06-17T17:50:58.179+0800	INFO	[monitoring]	log/log.go:130	Stopping metrics logging.
+2019-06-17T17:50:58.179+0800	INFO	instance/beat.go:401	metricbeat stopped.

@@ -1,0 +1,13 @@
+version: "3"
+services:
+  fluentd:
+    build: .
+    container_name: fluentd
+    ports:
+      - 24224:24224
+      - 24224:24224/udp
+    volumes: 
+      - data:/fluentd/log
+
+volumes:
+  data:
